@@ -150,6 +150,10 @@
 
 </main>
 
+<div class="ending-image">
+  <img src="結尾圖片.jpg" alt="結尾圖片" />
+</div>
+
 <footer>
   <span>第十二組 · 互動式網頁設計報告</span>
   <a href="#" class="back-top">回到頂端 ↑</a>
@@ -174,6 +178,11 @@
   }
   window.addEventListener('scroll', highlight);
   highlight();
+
+  window.addEventListener('beforeunload', function (e) {
+    e.preventDefault();
+    e.returnValue = '';
+  });
 </script>
 
 </body>

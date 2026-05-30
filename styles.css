@@ -217,6 +217,17 @@ section p {
   font-weight: 500;
 }
 
+/* ---------- ending image ---------- */
+.ending-image {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px 48px;
+}
+.ending-image img {
+  width: 100%;
+  display: block;
+}
+
 /* ---------- footer ---------- */
 footer {
   max-width: 760px;
