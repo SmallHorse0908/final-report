@@ -15,6 +15,17 @@
   </div>
 </header>
 
+<!-- 左側固定目錄（寬螢幕顯示） -->
+<nav class="side-toc" aria-label="目錄">
+  <div class="toc-title">目錄 / CONTENTS</div>
+  <ol>
+    <li><a href="#s1">目前現狀：傳統教材失能與 AI 碾壓</a></li>
+    <li><a href="#s2">目前處境：「為什麼而學」靈魂拷問</a></li>
+    <li><a href="#s3">核心困難：表面繁榮背後的崩塌</a></li>
+    <li><a href="#s4">建議方法：現代學生的「新護城河」</a></li>
+  </ol>
+</nav>
+
 <main>
 
   <!-- ========== TITLE ========== -->
@@ -160,20 +171,23 @@
 </footer>
 
 <script>
-  // 目錄高亮：捲動時標出目前所在章節
-  const links = document.querySelectorAll('.toc a');
+  // 目錄高亮：捲動時同步標出內文目錄與左側欄目前章節
+  const links = document.querySelectorAll('.toc a, .side-toc a');
   const sections = document.querySelectorAll('section');
 
   function highlight() {
     let active = null;
-    const y = window.scrollY + 100;
+    const y = window.scrollY + 120;
     sections.forEach(sec => {
       if (sec.offsetTop <= y) active = sec.id;
     });
     links.forEach(a => {
       const on = a.getAttribute('href') === '#' + active;
-      a.style.fontWeight = on ? '700' : '400';
-      a.style.color = on ? '#c00' : '#1a1a1a';
+      a.classList.toggle('active', on);
+      if (a.closest('.toc')) {
+        a.style.fontWeight = on ? '700' : '400';
+        a.style.color = on ? '#c00' : '#1a1a1a';
+      }
     });
   }
   window.addEventListener('scroll', highlight);
